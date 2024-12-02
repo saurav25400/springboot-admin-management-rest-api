@@ -2,6 +2,7 @@ package com.codingshuttle.production_ready_feature.prod.controllers;
 
 import com.codingshuttle.production_ready_feature.prod.dto.PostDto;
 import com.codingshuttle.production_ready_feature.prod.services.PostService;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,18 @@ public class PostController {
         return postService.getPostById(postId);
 
     }
+
+    @GetMapping(path="/calling external-api/weather")
+    public Object GetAllWeather(){
+        return postService.getWeatherData();
+    }
+
+    @PostMapping(path = "/data/prompt")
+    public JsonNode getGeminiRespone(@RequestBody Object prompt){
+        return postService.getGeminiResponse(prompt);
+
+    }
+
 
 
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.hibernate.envers.AuditReader;
+//import org.hibernate.envers.AuditReader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,16 +20,15 @@ public class AuditController {
 
 
 
-    @Autowired
-    private EntityManagerFactory entityManagerFactory;    //this below api is only for the admins;
-    @GetMapping(path="/getRevision/{postId}")
-    public List<PostEntity> getPostEntityRevision(@PathVariable Long postId){
-        AuditReader reader=AuditReaderFactory.get(entityManagerFactory.createEntityManager());
 
-        List<Number>revisions=reader.getRevisions(PostEntity.class,postId);
-        return revisions.stream().map(revisionNumber->reader.find(PostEntity.class,postId,revisionNumber))
-                .collect(Collectors.toList());
-    }
+//    @GetMapping(path="/getRevision/{postId}")
+//    public List<PostEntity> getPostEntityRevision(@PathVariable Long postId){
+//        AuditReader reader=AuditReaderFactory.get(entityManagerFactory.createEntityManager());
+//
+//        List<Number>revisions=reader.getRevisions(PostEntity.class,postId);
+//        return revisions.stream().map(revisionNumber->reader.find(PostEntity.class,postId,revisionNumber))
+//                .collect(Collectors.toList());
+//    }
 
 
 }
