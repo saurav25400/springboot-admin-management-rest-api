@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/audit")
 
+@RequiredArgsConstructor
 public class AuditController {
 
 

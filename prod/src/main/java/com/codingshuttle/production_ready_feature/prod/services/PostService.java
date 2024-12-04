@@ -1,5 +1,6 @@
 package com.codingshuttle.production_ready_feature.prod.services;
 
+import com.codingshuttle.production_ready_feature.prod.dto.EmployeeDTO;
 import com.codingshuttle.production_ready_feature.prod.dto.PostDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,11 @@ public interface PostService {
     public Object getWeatherData();
 
     public JsonNode getGeminiResponse(Object prompt);
+
+    public EmployeeDTO getEmployeeById(int id);
+
+    public List<EmployeeDTO>getAllEmployee();
+
+    public EmployeeDTO postEmployeeData(EmployeeDTO employeeDTO);
 
 }
